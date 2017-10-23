@@ -1,3 +1,5 @@
+source 'git@git.2dfire-inc.com:ios/cocoapods-spec.git'
+
 use_frameworks!
 
 target 'TDFModuleKit_Example' do

@@ -24,6 +24,8 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B78666B60CF2DBDFF6B668EA /* Pods_TDFModuleKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CBF6C61E5FCBF496FB3A38 /* Pods_TDFModuleKit_Example.framework */; };
+		D63BB1B71F9E1FC600574241 /* TDFAModule.m in Sources */ = {isa = PBXBuildFile; fileRef = D63BB1B61F9E1FC600574241 /* TDFAModule.m */; };
+		D63BB1BA1F9E1FCF00574241 /* TDFBModule.m in Sources */ = {isa = PBXBuildFile; fileRef = D63BB1B91F9E1FCF00574241 /* TDFBModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +41,8 @@
 /* Begin PBXFileReference section */
 		0941E41C9E7AD90163929A2F /* Pods-TDFModuleKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDFModuleKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TDFModuleKit_Tests/Pods-TDFModuleKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1268AF3BB9DDF999003C04E0 /* Pods-TDFModuleKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDFModuleKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TDFModuleKit_Example/Pods-TDFModuleKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		3036DE8576E1022CEEBF9B1A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		3CB843AF5B0A691E08D8B9F8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		3036DE8576E1022CEEBF9B1A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		3CB843AF5B0A691E08D8B9F8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		51B4B582F916973FC3EB2F9E /* Pods-TDFModuleKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDFModuleKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TDFModuleKit_Example/Pods-TDFModuleKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* TDFModuleKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TDFModuleKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,7 +67,11 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A594D8EFD47ED7AD40F1349 /* Pods-TDFModuleKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDFModuleKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TDFModuleKit_Tests/Pods-TDFModuleKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		BBF100DBAF5190614B5073B6 /* TDFModuleKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = TDFModuleKit.podspec; path = ../TDFModuleKit.podspec; sourceTree = "<group>"; };
+		BBF100DBAF5190614B5073B6 /* TDFModuleKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TDFModuleKit.podspec; path = ../TDFModuleKit.podspec; sourceTree = "<group>"; };
+		D63BB1B51F9E1FC600574241 /* TDFAModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDFAModule.h; sourceTree = "<group>"; };
+		D63BB1B61F9E1FC600574241 /* TDFAModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDFAModule.m; sourceTree = "<group>"; };
+		D63BB1B81F9E1FCF00574241 /* TDFBModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDFBModule.h; sourceTree = "<group>"; };
+		D63BB1B91F9E1FCF00574241 /* TDFBModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDFBModule.m; sourceTree = "<group>"; };
 		F66781726D0D3581671607CB /* Pods_TDFModuleKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TDFModuleKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,6 +143,10 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* TDFViewController.h */,
 				6003F5A6195388D20070C39A /* TDFViewController.m */,
+				D63BB1B51F9E1FC600574241 /* TDFAModule.h */,
+				D63BB1B61F9E1FC600574241 /* TDFAModule.m */,
+				D63BB1B81F9E1FCF00574241 /* TDFBModule.h */,
+				D63BB1B91F9E1FCF00574241 /* TDFBModule.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -394,6 +404,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63BB1BA1F9E1FCF00574241 /* TDFBModule.m in Sources */,
+				D63BB1B71F9E1FC600574241 /* TDFAModule.m in Sources */,
 				6003F59E195388D20070C39A /* TDFAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* TDFViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
