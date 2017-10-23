@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TDFModuleKit_Example' do
+  pod 'TDFModuleKit', :path => '../'
+
+  target 'TDFModuleKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
