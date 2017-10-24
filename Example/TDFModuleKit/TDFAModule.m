@@ -13,8 +13,8 @@
     [self registerModule];
 }
 
-+ (TDFModuleRegisterPriority)priority {
-    return TDFModuleRegisterPriorityHigh;
++ (TDFModulePriority)priority {
+    return TDFModulePriorityHigh;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

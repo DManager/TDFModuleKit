@@ -27,7 +27,7 @@
     [TDFModuleManager addModuleClass:self];
 }
 
-+ (TDFModuleRegisterPriority)priority {
-    return TDFModuleRegisterPriorityMedium;
++ (TDFModulePriority)priority {
+    return TDFModulePriorityMedium;
 }
 @end

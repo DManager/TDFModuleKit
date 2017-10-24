@@ -16,18 +16,18 @@
 /**
  模块优先级
 
- - TDFModuleRegisterPriorityVeryLow: 极底
- - TDFModuleRegisterPriorityLow: 低
- - TDFModuleRegisterPriorityMedium: 中
- - TDFModuleRegisterPriorityHigh: 高
- - TDFModuleRegisterPriorityVeryHigh: 极高
+ - TDFModulePriorityVeryLow: 极底
+ - TDFModulePriorityLow: 低
+ - TDFModulePriorityMedium: 中
+ - TDFModulePriorityHigh: 高
+ - TDFModulePriorityVeryHigh: 极高
  */
-typedef NS_ENUM(NSInteger, TDFModuleRegisterPriority) {
-    TDFModuleRegisterPriorityVeryLow = 0,
-    TDFModuleRegisterPriorityLow = 1,
-    TDFModuleRegisterPriorityMedium = 2,
-    TDFModuleRegisterPriorityHigh = 3,
-    TDFModuleRegisterPriorityVeryHigh = 4,
+typedef NS_ENUM(NSInteger, TDFModulePriority) {
+    TDFModulePriorityVeryLow = 0,
+    TDFModulePriorityLow = 1,
+    TDFModulePriorityMedium = 2,
+    TDFModulePriorityHigh = 3,
+    TDFModulePriorityVeryHigh = 4,
 };
 
 @interface TDFModule : NSObject 
@@ -41,10 +41,11 @@ typedef NS_ENUM(NSInteger, TDFModuleRegisterPriority) {
 /**
  模块优先级
  
+ 主工程模块的调用最先进行，剩余附属模块，
  内部会根据优先级，依次调用 UIApplicationDelegate 代理
- 默认是 TDFModuleRegisterPriorityMedium
+ 默认是 TDFModulePriorityMedium
  
  @return 优先级
  */
-+ (TDFModuleRegisterPriority)priority;
++ (TDFModulePriority)priority;
 @end
