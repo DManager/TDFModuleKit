@@ -4,8 +4,7 @@
 //
 //  Created by tripleCC on 2017/10/23.
 //
-@import ObjectiveC.objc;
-@import ObjectiveC.message;
+@import ObjectiveC.runtime;
 @import UIKit;
 
 #import "TDFModuleManager.h"
@@ -13,7 +12,10 @@
 #import "TDFApplicationDelegateProxy.h"
 
 static NSMutableArray const * TDFModuleClassArray = nil;
-static NSMutableArray <TDFModule *> const * TDFModuleArray = nil;
+
+@interface TDFModuleManager()
+@property (strong, nonatomic) NSMutableArray <TDFModule *> *mModules;
+@end
 
 @implementation TDFModuleManager
 + (instancetype)shared {
@@ -26,10 +28,12 @@ static NSMutableArray <TDFModule *> const * TDFModuleArray = nil;
 }
 
 + (void)addModuleClass:(Class)cls {
-    NSParameterAssert(cls && [cls conformsToProtocol:@protocol(TDFModuleProtocol)]);
+    NSParameterAssert(cls);
+    
     if (!TDFModuleClassArray) {
         TDFModuleClassArray = [NSMutableArray array];
     }
+    
     if (![TDFModuleClassArray containsObject:cls]) {
         [TDFModuleClassArray addObject:cls];
     }
@@ -39,18 +43,17 @@ static NSMutableArray <TDFModule *> const * TDFModuleArray = nil;
     [TDFModuleClassArray removeObject:cls];
 }
 
-+ (void)generateRegistedModules {
-    if (!TDFModuleArray) {
-        TDFModuleArray = [NSMutableArray array];
-    }
+- (void)generateRegistedModules {
+    [self.mModules removeAllObjects];
     
     [TDFModuleClassArray sortUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"priority" ascending:NO]]];
     
     for (Class cls in TDFModuleClassArray) {
         TDFModule *module = [cls module];
         NSAssert(module, @"module can't be nil of class %@", NSStringFromClass(cls));
-        if (![TDFModuleArray containsObject:module]) {
-            [TDFModuleArray addObject:module];
+        
+        if (![self.mModules containsObject:module]) {
+            [self.mModules addObject:module];
         }
     }
 }
@@ -64,7 +67,15 @@ static NSMutableArray <TDFModule *> const * TDFModuleArray = nil;
 }
 
 - (NSArray<TDFModule *> *)modules {
-    return (NSArray<TDFModule *> *)TDFModuleArray;
+    return (NSArray<TDFModule *> *)self.mModules;
+}
+
+- (NSMutableArray<TDFModule *> *)mModules {
+    if (!_mModules) {
+        _mModules = [NSMutableArray array];
+    }
+    
+    return _mModules;
 }
 @end
 
@@ -89,7 +100,7 @@ static void MCDSwizzleInstanceMethod(Class cls, SEL originalSelector, Class targ
 
 - (void)mcd_setDelegate:(id <UIApplicationDelegate>)delegate {
     TDFModuleManager.shared.proxy.realDelegate = delegate;
-    [TDFModuleManager generateRegistedModules];
+    [TDFModuleManager.shared generateRegistedModules];
     
     [self mcd_setDelegate:(id <UIApplicationDelegate>)TDFModuleManager.shared.proxy];
 }

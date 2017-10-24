@@ -9,5 +9,4 @@
 
 @interface TDFApplicationDelegateProxy : NSObject
 @property (strong, nonatomic) id <UIApplicationDelegate> realDelegate;
-@property (strong, nonatomic) UIWindow *window;
 @end

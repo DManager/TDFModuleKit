@@ -4,7 +4,7 @@
 //
 //  Created by tripleCC on 2017/10/23.
 //
-@import ObjectiveC;
+@import ObjectiveC.runtime;
 @import UIKit;
 
 #import "TDFModule.h"
@@ -41,7 +41,7 @@
         }
     }
     
-    return NO;
+    return [super respondsToSelector:aSelector];
 }
 
 - (id)forwardingTargetForSelector:(SEL)aSelector {

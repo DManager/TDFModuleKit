@@ -20,5 +20,4 @@
 + (instancetype)shared;
 + (void)addModuleClass:(Class)cls;
 + (void)removeModuleClass:(Class)cls;
-+ (void)generateRegistedModules;
 @end

@@ -8,6 +8,6 @@
 
 #import "TDFModuleKit.h"
 
-@interface TDFAModule : TDFModule
+@interface TDFAModule : TDFModule <TDFModuleProtocol>
 
 @end
