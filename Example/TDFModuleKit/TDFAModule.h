@@ -9,5 +9,4 @@
 #import "TDFModuleKit.h"
 
 @interface TDFAModule : TDFModule <TDFModuleProtocol>
-
 @end

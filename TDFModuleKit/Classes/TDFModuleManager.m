@@ -28,7 +28,7 @@ static NSMutableArray const * TDFModuleClassArray = nil;
 }
 
 + (void)addModuleClass:(Class)cls {
-    NSParameterAssert(cls);
+    NSParameterAssert(cls && [cls isSubclassOfClass:[TDFModule class]]);
     
     if (!TDFModuleClassArray) {
         TDFModuleClassArray = [NSMutableArray array];
