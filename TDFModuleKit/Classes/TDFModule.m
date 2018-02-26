@@ -24,6 +24,9 @@
 }
 
 + (void)registerModule {
+    // https://developer.apple.com/documentation/objectivec/nsobject/1418815-load?preferredLanguage=occ
+    // In a custom implementation of load you can therefore safely message other unrelated classes from the same image, but any load methods implemented by those classes may not have run yet.
+    // load 之前，同一个 image 中的所有 class 都是已知的，所以可以调用
     [TDFModuleManager addModuleClass:self];
 }
 
