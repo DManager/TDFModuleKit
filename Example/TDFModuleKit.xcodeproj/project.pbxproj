@@ -68,7 +68,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A594D8EFD47ED7AD40F1349 /* Pods-TDFModuleKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TDFModuleKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TDFModuleKit_Tests/Pods-TDFModuleKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		BBF100DBAF5190614B5073B6 /* TDFModuleKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TDFModuleKit.podspec; path = ../TDFModuleKit.podspec; sourceTree = "<group>"; };
+		BBF100DBAF5190614B5073B6 /* TDFModuleKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TDFModuleKit.podspec; path = ../TDFModuleKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D626DFA11F9EE341008CF95E /* TDFCModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDFCModule.h; sourceTree = "<group>"; };
 		D626DFA21F9EE341008CF95E /* TDFCModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDFCModule.m; sourceTree = "<group>"; };
 		D63BB1B51F9E1FC600574241 /* TDFAModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDFAModule.h; sourceTree = "<group>"; };
