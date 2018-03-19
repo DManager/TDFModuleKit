@@ -93,9 +93,3 @@ report_to_director:
   when: on_failure
   tags:
     - iOS
-
-<!-- cleanup_runner:
-  stage: cleanup
-  script:
-    - rm -fr ci-yaml-shell
-  when: always -->
