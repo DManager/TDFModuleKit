@@ -1,5 +1,7 @@
 source 'git@git.2dfire-inc.com:ios/cocoapods-spec.git'
 
+plugin 'cocoapods-tdfire-binary'
+
 use_frameworks!
 
 target 'TDFModuleKit_Example' do
@@ -8,6 +10,7 @@ target 'TDFModuleKit_Example' do
   target 'TDFModuleKit_Tests' do
     inherit! :search_paths
 
+    tdfire_unpublished_pods ['TDFModuleKit']
     
   end
 end
