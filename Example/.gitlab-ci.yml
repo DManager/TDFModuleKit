@@ -29,29 +29,29 @@ stages:
   - report
   - cleanup
 
-lib_lint:
-  stage: lint
-  retry: 2
-  script: 
-    - ci-yaml-shell/lib_lint_executor.sh
-  tags:
-    - iOS
+# lib_lint:
+#   stage: lint
+#   retry: 2
+#   script: 
+#     - ci-yaml-shell/lib_lint_executor.sh
+#   tags:
+#     - iOS
 
-oc_lint:
-  stage: lint
-  script: 
-    - ci-yaml-shell/oclint_executor.sh lint_result
-  after_script:
-    - cat lint_result | python -m json.tool
-  tags:
-    - iOS
+# oc_lint:
+#   stage: lint
+#   script: 
+#     - ci-yaml-shell/oclint_executor.sh lint_result
+#   after_script:
+#     - cat lint_result | python -m json.tool
+#   tags:
+#     - iOS
 
-unit_test:
-  stage: test
-  script: 
-    - ci-yaml-shell/unit_test_executor.sh
-  tags:
-    - iOS
+# unit_test:
+#   stage: test
+#   script: 
+#     - ci-yaml-shell/unit_test_executor.sh
+#   tags:
+#     - iOS
 
 package_framework:
   stage: package 
@@ -93,9 +93,3 @@ report_to_director:
   when: on_failure
   tags:
     - iOS
-
-<!-- cleanup_runner:
-  stage: cleanup
-  script:
-    - rm -fr ci-yaml-shell
-  when: always -->
