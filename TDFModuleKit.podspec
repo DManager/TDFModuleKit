@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TDFModuleKit'
-  s.version      = "0.1.1"
+  s.version      = "1.0.0"
   s.summary          = 'TDFModuleKit 模块抽象类，可以提供模块生命周期回调.'
 
 # This description is used to generate tags and improve search results.
