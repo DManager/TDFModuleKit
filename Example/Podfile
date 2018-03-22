@@ -9,8 +9,6 @@ target 'TDFModuleKit_Example' do
 
   target 'TDFModuleKit_Tests' do
     inherit! :search_paths
-
-    tdfire_unpublished_pods ['TDFModuleKit']
     
   end
 end
