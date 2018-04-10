@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TDFModuleKit'
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary          = 'TDFModuleKit 模块抽象类，可以提供模块生命周期回调.'
 
 # This description is used to generate tags and improve search results.
@@ -27,22 +27,16 @@ TDFModuleKit 模块抽象类，可以提供模块生命周期回调.
   s.source           = { :git => 'git@git.2dfire-inc.com:ios/TDFModuleKit.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
 
-  tdfire_source_proc = Proc.new do
+  tdfire_source_proc = lambda do |s|
     s.source_files = 'TDFModuleKit/Classes/**/*'
     s.public_header_files = ['TDFModuleKit/Classes/TDFModuleKit.h', 'TDFModuleKit/Classes/TDFModule.h']  
   end
 
-  unless %w[tdfire_set_binary_download_configurations_at_last tdfire_source tdfire_binary].reduce(true) { |r, m| s.respond_to?(m) & r }    
-    tdfire_source_proc.call
+  unless %w[tdfire_set_binary_download_configurations tdfire_source tdfire_binary].reduce(true) { |r, m| s.respond_to?(m) & r }
+    tdfire_source_proc.call s
   else
-    s.tdfire_source &tdfire_source_proc
-    
-    s.tdfire_binary do 
-      s.vendored_framework = "#{s.name}.framework"
-      s.source_files = "#{s.name}.framework/Headers/*"
-      s.public_header_files = "#{s.name}.framework/Headers/*"
-    end
-    
-    s.tdfire_set_binary_download_configurations_at_last
+    s.tdfire_source tdfire_source_proc
+    s.tdfire_binary tdfire_source_proc
+    s.tdfire_set_binary_download_configurations
   end
 end
