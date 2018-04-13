@@ -4,18 +4,21 @@ before_script:
   - export LANG=en_US.UTF-8
   - export LANGUAGE=en_US:en
   - export LC_ALL=en_US.UTF-8
-
+  
   - pwd
   - ruby -v
-  - gem install cocoapods --no-ri --no-rdoc
+#  - git config --get user.name
+#  - git config --get user.email
+  - gem install cocoapods --version 1.2.1 --no-ri --no-rdoc
   - gem install xcpretty --no-ri --no-rdoc
-  - pod --version
+  - pod _1.2.1_ --version
   #- pod cache clean --all
   - git clone git@git.2dfire-inc.com:ios/ci-yaml-shell.git 
   - gem uninstall cocoapods-tdfire-binary --all
   - gem install cocoapods-tdfire-binary
-  #- gem install specific_install
-  #- gem specific_install -l git@git.2dfire-inc.com:ios/cocoapods-tdfire.git
+  - xcodebuild -version
+  # - gem install specific_install
+  # - gem specific_install -l https://github.com/tripleCC/cocoapods-tdfire-binary.git
 
 after_script:
   - rm -fr ci-yaml-shell
@@ -31,6 +34,10 @@ stages:
 
 lib_lint:
   stage: lint
+  only:
+    - master
+    - /^release.*$/
+    - tags
   retry: 2
   script: 
     - ci-yaml-shell/lib_lint_executor.sh
@@ -39,6 +46,10 @@ lib_lint:
 
 oc_lint:
   stage: lint
+  only:
+    - master
+    - /^release.*$/
+    - tags
   script: 
     - ci-yaml-shell/oclint_executor.sh lint_result
   after_script:
@@ -48,6 +59,11 @@ oc_lint:
 
 unit_test:
   stage: test
+  only:
+    - master
+    - /^release.*$/
+    - tags
+  retry: 2
   script: 
     - ci-yaml-shell/unit_test_executor.sh
   tags:
@@ -88,7 +104,6 @@ report_to_director:
     - ci-yaml-shell/report_executor.sh
   only:
     - master
-    - develop
     - tags
   when: on_failure
   tags:
