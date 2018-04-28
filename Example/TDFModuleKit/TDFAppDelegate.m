@@ -7,6 +7,7 @@
 //
 
 #import "TDFAppDelegate.h"
+#import "TDFViewController.h"
 
 @implementation TDFAppDelegate
 
@@ -14,8 +15,24 @@
 {
     // Override point for customization after application launch.
     NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    UIWindow *w = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    w.rootViewController = [[TDFViewController alloc] init];
+    [w makeKeyAndVisible];
+    
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    return NO;
+}
+
+- (BOOL)application:(UIApplication *)application shouldAllowExtensionPointIdentifier:(UIApplicationExtensionPointIdentifier)extensionPointIdentifier {
+    NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    return NO;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

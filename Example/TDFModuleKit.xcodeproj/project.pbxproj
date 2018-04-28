@@ -24,6 +24,10 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B78666B60CF2DBDFF6B668EA /* Pods_TDFModuleKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CBF6C61E5FCBF496FB3A38 /* Pods_TDFModuleKit_Example.framework */; };
+		BE727118209468F500E406C1 /* TDFAModule.m in Sources */ = {isa = PBXBuildFile; fileRef = D63BB1B61F9E1FC600574241 /* TDFAModule.m */; };
+		BE727119209468F500E406C1 /* TDFBModule.m in Sources */ = {isa = PBXBuildFile; fileRef = D63BB1B91F9E1FCF00574241 /* TDFBModule.m */; };
+		BE72711A209468F500E406C1 /* TDFCModule.m in Sources */ = {isa = PBXBuildFile; fileRef = D626DFA21F9EE341008CF95E /* TDFCModule.m */; };
+		BE72711B209468F900E406C1 /* TDFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* TDFAppDelegate.m */; };
 		D626DFA31F9EE341008CF95E /* TDFCModule.m in Sources */ = {isa = PBXBuildFile; fileRef = D626DFA21F9EE341008CF95E /* TDFCModule.m */; };
 		D63BB1B71F9E1FC600574241 /* TDFAModule.m in Sources */ = {isa = PBXBuildFile; fileRef = D63BB1B61F9E1FC600574241 /* TDFAModule.m */; };
 		D63BB1BA1F9E1FCF00574241 /* TDFBModule.m in Sources */ = {isa = PBXBuildFile; fileRef = D63BB1B91F9E1FCF00574241 /* TDFBModule.m */; };
@@ -431,6 +435,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE72711B209468F900E406C1 /* TDFAppDelegate.m in Sources */,
+				BE727118209468F500E406C1 /* TDFAModule.m in Sources */,
+				BE727119209468F500E406C1 /* TDFBModule.m in Sources */,
+				BE72711A209468F500E406C1 /* TDFCModule.m in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

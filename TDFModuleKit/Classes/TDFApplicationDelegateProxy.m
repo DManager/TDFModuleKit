@@ -62,13 +62,30 @@
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    if ([self.realDelegate respondsToSelector:anInvocation.selector]) {
-        [anInvocation invokeWithTarget:self.realDelegate];
-    }
+    NSMutableArray *allModules = [NSMutableArray arrayWithObjects:self.realDelegate, nil];
+    [allModules addObjectsFromArray:[TDFModuleManager shared].modules];
     
-    for (TDFModule *module in [TDFModuleManager shared].modules) {
-        if ([module respondsToSelector:anInvocation.selector]) {
-            [anInvocation invokeWithTarget:module];
+    // BOOL 型返回值做特殊 | 处理
+    if (anInvocation.methodSignature.methodReturnType[0] == 'B') {
+        BOOL realReturnValue = NO;
+        
+        for (TDFModule *module in allModules) {
+            if ([module respondsToSelector:anInvocation.selector]) {
+                [anInvocation invokeWithTarget:module];
+                
+                BOOL returnValue = NO;
+                [anInvocation getReturnValue:&returnValue];
+                
+                realReturnValue = returnValue | realReturnValue;
+            }
+        }
+        
+        [anInvocation setReturnValue:&realReturnValue];
+    } else {
+        for (TDFModule *module in allModules) {
+            if ([module respondsToSelector:anInvocation.selector]) {
+                [anInvocation invokeWithTarget:module];
+            }
         }
     }
 }

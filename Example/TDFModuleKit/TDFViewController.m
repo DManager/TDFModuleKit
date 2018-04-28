@@ -17,6 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"resultA %d", [[UIApplication sharedApplication].delegate application:[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"ftp://ggboy"] options:@{}]);
+    NSLog(@"resultB %d", [[UIApplication sharedApplication].delegate application:[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://ggboy"] options:@{}]);
+    
+    NSLog(@"resultC %d", [[UIApplication sharedApplication].delegate application:[UIApplication sharedApplication] shouldAllowExtensionPointIdentifier:@"LALALA"]);
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

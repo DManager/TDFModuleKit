@@ -34,4 +34,14 @@
     NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    return NO;
+}
+
+- (BOOL)application:(UIApplication *)application shouldAllowExtensionPointIdentifier:(UIApplicationExtensionPointIdentifier)extensionPointIdentifier {
+    NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    return NO;
+}
+
 @end

@@ -17,6 +17,21 @@
     return TDFModulePriorityLow;
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
+    if ([url.scheme isEqualToString:@"http"]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)application:(UIApplication *)application shouldAllowExtensionPointIdentifier:(UIApplicationExtensionPointIdentifier)extensionPointIdentifier {
+    NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    return NO;
+}
+
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
     NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     return YES;
