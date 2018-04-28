@@ -76,7 +76,7 @@
                 BOOL returnValue = NO;
                 [anInvocation getReturnValue:&returnValue];
                 
-                realReturnValue = returnValue | realReturnValue;
+                realReturnValue = returnValue || realReturnValue;
             }
         }
         
