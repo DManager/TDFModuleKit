@@ -27,11 +27,11 @@
  这种情况下，TDFModule子类中，最好不要存在硬编码，使用变量或配置文件配置，这样才能让各业务线通用
  */
 typedef NS_ENUM(NSInteger, TDFModulePriority) {
-    TDFModulePriorityVeryLow = 0,
-    TDFModulePriorityLow = 1,
-    TDFModulePriorityMedium = 2,
-    TDFModulePriorityHigh = 3,
-    TDFModulePriorityVeryHigh = 4,
+    TDFModulePriorityVeryLow = 25,
+    TDFModulePriorityLow = 50,
+    TDFModulePriorityMedium = 100,
+    TDFModulePriorityHigh = 150,
+    TDFModulePriorityVeryHigh = 175,
 };
 
 @interface TDFModule : NSObject 
