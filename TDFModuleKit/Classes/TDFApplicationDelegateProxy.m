@@ -22,6 +22,8 @@
     
     for (int idx = 0; idx < outCount; idx++) {
         if (selector == methodDescriptions[idx].name) {
+            free(methodDescriptions);
+            
             return YES;
         }
     }
