@@ -33,4 +33,12 @@
 + (TDFModulePriority)priority {
     return TDFModulePriorityMedium;
 }
+
+- (void)runAfterMethodExecuted:(void (^)(void))block {
+    // 当前代码执行完后，再执行 block 代码
+    dispatch_async(dispatch_get_main_queue(), ^{
+        !block ?: block();
+    });
+}
+
 @end

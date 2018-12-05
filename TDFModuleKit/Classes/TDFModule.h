@@ -52,4 +52,22 @@ typedef NS_ENUM(NSInteger, TDFModulePriority) {
  @return 优先级
  */
 + (TDFModulePriority)priority;
+
+/**
+ 在调用方法执行完成之后执行 block
+ 
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self runAfterMethodExecuted:^{
+        // 创建 windows
+    }];
+    return YES;
+ }
+ 
+ 某些操作只能在系统声明周期执行完成之后才执行，比如创建 level 比较高的 window，需要设置 root vc，（可能会和原 root vc 冲突）
+ 这时候就需要将操作放入下面 block 中
+ 
+ 推荐对顺序不敏感，对系统调用返回值不影响的操作都放在这个方法的 block 参数中
+ */
+- (void)runAfterMethodExecuted:(void(^)(void))block;
+
 @end
