@@ -19,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    [self runAfterMethodExecuted:^{
+        NSLog(@"runAfterMethodExecuted %@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    }];
     return YES;
 }
 
@@ -41,6 +44,7 @@
 
 - (BOOL)application:(UIApplication *)application shouldAllowExtensionPointIdentifier:(UIApplicationExtensionPointIdentifier)extensionPointIdentifier {
     NSLog(@"%@, %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    
     return NO;
 }
 

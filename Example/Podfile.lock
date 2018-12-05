@@ -1,16 +1,16 @@
 PODS:
-  - TDFModuleKit (1.0.1)
+  - TDFModuleKit (1.0.4)
 
 DEPENDENCIES:
   - TDFModuleKit (from `../`)
 
 EXTERNAL SOURCES:
   TDFModuleKit:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  TDFModuleKit: 75f1c3fd1774c4d4fb5dbb195de196fb7f44430d
+  TDFModuleKit: b382fbfca910c26626a0ad699b76fc97a653b8d0
 
-PODFILE CHECKSUM: fd398c1c1f3baf3ff0b4c564f0b384cd014f079a
+PODFILE CHECKSUM: 1c4cf0b10d8a68a750f0472c02421849c14fcd17
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
