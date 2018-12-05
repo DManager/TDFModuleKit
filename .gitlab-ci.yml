@@ -13,7 +13,7 @@ before_script:
   - gem install xcpretty --no-ri --no-rdoc
   - pod _1.2.1_ --version
   #- pod cache clean --all
-  - git clone git@git.2dfire-inc.com:ios/ci-yaml-shell.git 
+  - git clone git@git.2dfire.net:ios/ci-yaml-shell.git 
   - gem uninstall cocoapods-tdfire-binary --all
   - gem install cocoapods-tdfire-binary
   - xcodebuild -version
