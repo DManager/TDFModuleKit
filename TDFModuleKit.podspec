@@ -24,7 +24,7 @@ TDFModuleKit 模块抽象类，可以提供模块生命周期回调.
   s.homepage         = 'https://github.com/tripleCC/TDFModuleKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'tripleCC' => 'triplec.linux@gmail.com' }
-  s.source           = { :git => 'git@git.2dfire-inc.com:ios/TDFModuleKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@git.2dfire.net:ios/TDFModuleKit.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
 
   tdfire_source_proc = lambda do |s|
