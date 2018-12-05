@@ -1,4 +1,4 @@
-source 'git@git.2dfire-inc.com:ios/cocoapods-spec.git'
+source 'git@git.2dfire.net:ios/cocoapods-spec.git'
 
 plugin 'cocoapods-tdfire-binary'
 
