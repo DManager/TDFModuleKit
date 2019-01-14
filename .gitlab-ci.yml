@@ -1,3 +1,9 @@
+variables:
+  # 二进制优先， lint、package、publish 会有 --binary-first option
+  BINARY_FIRST: 1 
+  # 不允许通知 
+  DISABLE_NOTIFY: 0
+
 before_script:
   # https://gitlab.com/gitlab-org/gitlab-ce/issues/14983
   # shared runner 会出现，special runner只会报warning
@@ -6,24 +12,14 @@ before_script:
   - export LC_ALL=en_US.UTF-8
   
   - pwd
-  - ruby -v
-#  - git config --get user.name
-#  - git config --get user.email
-  - gem install cocoapods --version 1.2.1 --no-ri --no-rdoc
-  - gem install xcpretty --no-ri --no-rdoc
-  - pod _1.2.1_ --version
-  #- pod cache clean --all
   - git clone git@git.2dfire.net:ios/ci-yaml-shell.git 
-  - gem uninstall cocoapods-tdfire-binary --all
-  - gem install cocoapods-tdfire-binary
-  - xcodebuild -version
-  # - gem install specific_install
-  # - gem specific_install -l https://github.com/tripleCC/cocoapods-tdfire-binary.git
+  - ci-yaml-shell/before_shell_executor.sh
 
 after_script:
   - rm -fr ci-yaml-shell
 
 stages:
+  - check
   - lint
   - test
   - package
@@ -32,42 +28,63 @@ stages:
   - report
   - cleanup
 
+component_check:
+  stage: check
+  script: 
+    - ci-yaml-shell/component_check_executor.rb
+  only:
+    - master
+    - /^release.*$/
+    - /^hotfix.*$/
+    - tags
+    - CI
+  tags:
+    - iOSCI
+  environment:
+    name: qa
+
 lib_lint:
   stage: lint
   only:
     - master
     - /^release.*$/
-    - tags
-  retry: 2
+    - /^hotfix.*$/
+    # - tags
+    - CI
+  retry: 0
   script: 
     - ci-yaml-shell/lib_lint_executor.sh
   tags:
-    - iOS
+    - iOSCI
+  environment:
+    name: qa
+# oc_lint:
+#   stage: lint
+#   only:
+#     - master
+#     # - /^release.*$/
+#     - CI
+#   retry: 0
+#   script: 
+#     - ci-yaml-shell/oclint_executor.sh lint_result
+#   after_script:
+#     - cat lint_result | python -m json.tool
+#   tags:
+#     - iOS
 
-oc_lint:
-  stage: lint
-  only:
-    - master
-    - /^release.*$/
-    - tags
-  script: 
-    - ci-yaml-shell/oclint_executor.sh lint_result
-  after_script:
-    - cat lint_result | python -m json.tool
-  tags:
-    - iOS
-
-unit_test:
-  stage: test
-  only:
-    - master
-    - /^release.*$/
-    - tags
-  retry: 2
-  script: 
-    - ci-yaml-shell/unit_test_executor.sh
-  tags:
-    - iOS
+# unit_test:
+#   stage: test
+#   only:
+#     - master
+#     # - /^release.*$/
+#     - CI
+#   retry: 1
+#   script: 
+#     - ci-yaml-shell/unit_test_executor.sh
+#   tags:
+#     - iOSCI
+#   environment:
+#     name: qa
 
 package_framework:
   stage: package 
@@ -76,26 +93,31 @@ package_framework:
   script:
     - ci-yaml-shell/framework_pack_executor.sh
   tags:
-    - iOS
+    - iOSCD
+  environment:
+    name: production
 
-binary_lint:
-  stage: binary_lint
-  only:
-    - tags
-  script:
-    - ci-yaml-shell/lib_lint_executor.sh
-  tags:
-    - iOS
+# binary_lint:
+#   stage: binary_lint
+#   only:
+#     - tags
+#   retry: 1
+#   script:
+#     - ci-yaml-shell/binary_lint_executor.sh
+#   tags:
+#     - iOS
 
 publish_pod:
   stage: publish
   only:
     - tags
-  retry: 2
+  retry: 0
   script:
     - ci-yaml-shell/publish_executor.sh
   tags:
-    - iOS
+    - iOSCD
+  environment:
+    name: production
   # allow_failure: true
 
 report_to_director:
@@ -107,4 +129,14 @@ report_to_director:
     - tags
   when: on_failure
   tags:
-    - iOS
+    - iOSCD
+
+# cleanup:
+#   only:
+#     - master
+#     - /^release.*$/
+#     - tags
+#   stage: cleanup
+#   script:
+#     - ci-yaml-shell/cleanup_executor.sh
+#   when: always
